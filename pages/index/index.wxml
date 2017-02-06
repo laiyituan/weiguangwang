@@ -1,0 +1,65 @@
+<!--index.wxml-->
+
+  <scroll-view scroll-y="true"  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="100" style="height:600px;">
+
+    <swiper
+      class="banner-text"
+      indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}"
+      interval="{{interval}}"
+      duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key="img">
+        <swiper-item>
+          <image class="banner-img" src="{{item}}" width="355" height="150"/>
+        </swiper-item>
+      </block>
+       <navigator
+        url="../search/search"
+        hover-class="className"
+        class="search-box search-position"> 
+        <view class="search-icon">
+          <image src="../../image/icon_search.png"/>
+        </view>
+        <text class="search-input">搜书名/作者/ISBN</text>
+        <text class="search-btn">搜索</text>
+      </navigator>
+    </swiper>
+
+    <!-- 你可能感兴趣 -->
+    <view class="interested-block">
+      <text class="interested-block__text">你可能感兴趣</text>
+      <view class="interested-block__refresh" bindtap="toRefresh">换一换</view>
+    </view>
+    <view class="ul-container">
+      <view class="li-list" wx:for="{{ bookList }}" wx:key="book">
+        <navigator url="../details/details?id={{item.id}}">
+          <image class="li-list__img" src="{{ item.image }}"/>
+          <view class="li-list__text">
+            <text class="li-list__text__tt">{{ item.title }}</text>
+            <view class="stars-unit">
+              <view class="stars-unit__grey">
+                <view class="stars-unit__yellow" style="width: {{ item.rate }};"></view>
+              </view>
+              <text class="stars-unit__rate">{{ item.rating.average }}</text>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view class="no-more" wx:if="{{ noMore }}">
+      <text>没有更多数据啦~\(≧▽≦)/~</text>
+    </view>
+    <!-- 你可能感兴趣结束 -->
+  </scroll-view>
+
+<!-- <view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view> Hello {{ name }} !</view>
+  <button bindtap="changeName">Click me!</button>
+</view> -->

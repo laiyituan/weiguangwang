@@ -1,0 +1,39 @@
+/**index.wxss**/
+.category {
+  margin-bottom: 36rpx;
+}
+.category-wrap__title {
+  font-size: 30rpx;
+  margin-bottom: 15rpx;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.scroll-view-item {
+  height: 100px;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.bc_green {
+  background-color: green;
+}
+
+.bc_red {
+  background-color: red;
+}

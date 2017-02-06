@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view> Hello {{ name }} !</view>
+  <button bindtap="changeName">Click me!</button>
+</view> -->
+<view class="padding-wrap">
+  <view class="category" wx:for="{{tagArr}}" wx:for-item="category" wx:key="category">
+    <view class="category-wrap__title">{{category.title}}</view>
+    <view class="category-wrap__tags">
+      <block wx:for="{{category.tags}}" wx:for-index="index" wx:for-item="categoryitem">
+        <navigator class="tag-unit tag-grey"  url="../list/list?tag={{categoryitem}}">
+          <text class="tag">{{categoryitem}}</text>
+        </navigator>
+      </block>
+      <!-- <text class="tag-unit tag-grey" wx:for="{{category.tags}}">{{item}}</text> -->
+    </view>
+  </view>
+</view>

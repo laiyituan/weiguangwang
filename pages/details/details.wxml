@@ -1,0 +1,40 @@
+<!--logs.wxml-->
+<scroll-view scroll-y="true">
+  <view class="detail-top">
+    <view class="detail-top__bg" style="background-image: url({{bookInfo.images.large}})">
+    </view>
+    <image class="detail-top__img" src="{{bookInfo.images.large}}"/>
+  </view>
+  <view class="detail-info">
+    <view class="detail-info__left">
+      <view class="detail-info__left__title">{{bookInfo.title}}</view>
+      <view class="detail-info__left__content">
+        <view>
+          作者：<text wx:for="{{bookInfo.author}}">{{index === 0 ? item : '、' + item}} </text>
+        </view>
+        <view>
+          出版社：{{bookInfo.publisher}}
+        </view>
+        <view>
+          出版时间：{{bookInfo.pubdate}}
+        </view>
+      </view>
+      <view class="detail-info__left__tag">
+        <text class="tag-unit" wx:for="{{bookInfo.tags}}"> {{item.name}} </text>
+      </view>
+    </view>
+    <view class="detail-info__right">
+      <view>{{ bookInfo.rating.average }}</view>
+      <view class="stars-unit">
+        <view class="stars-unit__grey">
+          <view class="stars-unit__yellow" style="width: {{ bookInfo.rate }};"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="s-bg"></view>
+  <view class="detail-summary">
+    <view class="detail-summary__title">图书摘要</view>
+    <view class="detail-summary__content">{{ bookInfo.summary }}</view>
+  </view>
+</scroll-view>

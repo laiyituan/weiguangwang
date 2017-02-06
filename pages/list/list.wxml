@@ -1,0 +1,6 @@
+<scroll-view class="padding-wrap" scroll-y="true"  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="100" style="height: 100%;">
+
+  <import src="../component/list/list.wxml"/>
+  <template is="list" data="{{resultList: resultList, noMore: noMore}}"/>
+
+</scroll-view>

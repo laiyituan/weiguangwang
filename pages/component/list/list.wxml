@@ -1,0 +1,36 @@
+<template name="list">
+    <view wx:for="{{ resultList }}" wx:for-item="result" wx:key="resultItem">
+      <navigator class="list-content" url="../details/details?id={{ result.id }}">
+        <view class="list-content__left">
+          <image class="list-content__left__img" src="{{ result.image }}"/>
+        </view>
+        <view class="list-content__right">
+          <view class="list-content__right__tt">{{ result.title }}</view>
+          <view class="list-content__right__rate">
+            <view class="stars-unit">
+              <view class="stars-unit__grey">
+                <view class="stars-unit__yellow" style="width: {{ result.rate }};"></view>
+              </view>
+              <text class="stars-unit__rate">{{ result.rating.average }}</text>
+            </view>
+          </view>
+          <view class="list-content__right__tag">
+            <text wx:if="{{result.tags[0]}}" class="tag-unit">{{ result.tags[0].name }}</text>
+            <text wx:if="{{result.tags[1]}}" class="tag-unit">{{ result.tags[1].name }}</text>
+            <text wx:if="{{result.tags[2]}}" class="tag-unit">{{ result.tags[2].name }}</text>
+            <!-- <text class="tag-unit" wx:for="{{ result.tags }}">{{item.name}}</text> -->
+          </view>
+          <view class="list-content__right__author">
+            作者：<text>{{result.author[0]}}</text>
+            <!-- 作者：<text wx:for="{{result.author}}">{{index === 0 ? item : '、' + item}}</text> -->
+          </view>
+          <view class="list-content__right__detail">
+            {{ result.summary }}
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="no-more" wx:if="{{ noMore }}">
+      <text>没有更多数据啦~\(≧▽≦)/~</text>
+    </view>
+</template>
